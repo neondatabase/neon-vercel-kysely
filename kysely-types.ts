@@ -8,6 +8,26 @@ export interface Employees {
   last_name: string | null;
 }
 
+export interface GeographyColumns {
+  f_table_catalog: string | null;
+  f_table_schema: string | null;
+  f_table_name: string | null;
+  f_geography_column: string | null;
+  coord_dimension: number | null;
+  srid: number | null;
+  type: string | null;
+}
+
+export interface GeometryColumns {
+  f_table_catalog: string | null;
+  f_table_schema: string | null;
+  f_table_name: string | null;
+  f_geometry_column: string | null;
+  coord_dimension: number | null;
+  srid: number | null;
+  type: string | null;
+}
+
 export interface WhcSites2021 {
   unique_number: number;
   id_no: number;
@@ -51,5 +71,7 @@ export interface WhcSites2021 {
 
 export interface DB {
   employees: Employees;
+  geography_columns: GeographyColumns;
+  geometry_columns: GeometryColumns;
   whc_sites_2021: WhcSites2021;
 }
