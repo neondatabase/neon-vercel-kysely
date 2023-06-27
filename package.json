@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.4.1",
-    "kysely": "^0.24.2"
+    "kysely": "^0.25.0"
   },
   "devDependencies": {
     "@types/pg": "^8.6.6",
@@ -16,6 +16,6 @@
     "kysely-codegen": "^0.10.0",
     "pg": "^8.9.0",
     "typescript": "^5.0.4",
-    "vercel": "^28.14.1"
+    "vercel": "^30.2.3"
   }
 }

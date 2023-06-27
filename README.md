@@ -4,21 +4,19 @@ This repo demonstrates [kysely](https://github.com/koskimas/kysely) and [kysely-
 
 We implement a simple app that generates a JSON listing of the user's nearest 10 UNESCO World Heritage sites via IP geolocation (data copyright © 1992 – 2022 [UNESCO/World Heritage Centre](https://whc.unesco.org/en/syndication/)).
 
-Note: at the time of writing, WebSockets are not supported in the local Vercel development environment, so `npx vercel dev` is not usable.
-
 
 ## How it works
 
-The kysely package doesn't attempt to import the `pg` package, making it straightforward to use in a serverless environment.
+The kysely package doesn't attempt to import the `pg` package, making it straightforward to use with `@neondatabase/serverless`.
 
-For kysely-codegen, we generate an ordinary TypeScript `.ts` file that's explicitly included among and imported from the source files, instead of a `.d.ts` declaration file that's tucked away inside `node_modules`. This prevents errors by ensuring the types are included when the Edge Function is built and deployed. The types file is at `./kysely-types.ts`.
+For kysely-codegen, we generate an ordinary TypeScript `.ts` file that's explicitly included among and imported from the source files (instead of a `.d.ts` declaration file that's tucked away inside `node_modules`). This prevents errors by ensuring the types are included when the Edge Function is built and deployed. The types file is at `./kysely-types.ts`.
 
 
 ## Deploy
 
-* Ensure the `psql` client is installed
+* Ensure the `psql` client is installed.
 
-* Create a Neon database and make a note of the connection string.
+* Create a Neon database and make a note of the connection string from the [Neon console](https://console.neon.tech/).
 
 * Clone this repo, then:
 
@@ -26,12 +24,8 @@ For kysely-codegen, we generate an ordinary TypeScript `.ts` file that's explici
 # get dependencies
 npm install
 
-# set up Vercel
-npx vercel login
-npx vercel link
-
 # create DATABASE_URL environment variable, remote and local
-npx vercel env add DATABASE_URL  # paste in the connection string: postgres://...
+npx vercel env add DATABASE_URL  # paste in the connection string and select all environments
 npx vercel env pull .env.local  # now bring it down into ./.env.local for local use
 
 # create the schema and copy data to DB
@@ -42,8 +36,13 @@ npx vercel env pull .env.local  # now bring it down into ./.env.local for local 
 # update kysely types from DB
 npm run update-kysely-types
 
+# test
+npx vercel dev
+
 # ... and deploy
 npx vercel deploy
 ```
 
-* Now visit the deployed function at the URL given
+## Feedback and support
+
+Please visit [Neon Community](https://community.neon.tech/) or [Support](https://neon.tech/docs/introduction/support).

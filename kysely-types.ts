@@ -28,6 +28,12 @@ export interface GeometryColumns {
   type: string | null;
 }
 
+export interface Pokemon {
+  id: number;
+  name: string;
+  type: string;
+}
+
 export interface WhcSites2021 {
   unique_number: number;
   id_no: number;
@@ -73,5 +79,6 @@ export interface DB {
   employees: Employees;
   geography_columns: GeographyColumns;
   geometry_columns: GeometryColumns;
+  pokemon: Pokemon;
   whc_sites_2021: WhcSites2021;
 }
