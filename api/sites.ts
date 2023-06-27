@@ -2,11 +2,6 @@ import { Pool } from '@neondatabase/serverless';
 import { Kysely, PostgresDialect, sql } from 'kysely';
 import type { DB } from '../kysely-types';
 
-export const config = {
-  runtime: 'edge',
-  regions: ['fra1'],  // fra1 = Frankfurt: pick the Vercel region nearest your Neon DB
-};
-
 export default async (req: Request, ctx: any) => {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
   const db = new Kysely<DB>({ dialect: new PostgresDialect({ pool }) });
@@ -34,3 +29,8 @@ export default async (req: Request, ctx: any) => {
 
   return new Response(JSON.stringify({ longitude, latitude, sites }, null, 2));
 }
+
+export const config = {
+  runtime: 'edge',
+  regions: ['fra1'],  // fra1 = Frankfurt: pick the Vercel region nearest your Neon DB
+};
