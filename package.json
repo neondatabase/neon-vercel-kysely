@@ -15,7 +15,6 @@
     "env-cmd": "^10.1.0",
     "kysely-codegen": "^0.10.0",
     "pg": "^8.9.0",
-    "typescript": "^5.0.4",
-    "vercel": "^30.2.3"
+    "typescript": "^5.0.4"
   }
 }

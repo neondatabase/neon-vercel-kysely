@@ -23,6 +23,7 @@ For kysely-codegen, we generate an ordinary TypeScript `.ts` file that's explici
 ```bash
 # get dependencies
 npm install
+npm install -g vercel@latest
 
 # create DATABASE_URL environment variable, remote and local
 npx vercel env add DATABASE_URL  # paste in the connection string and select all environments
